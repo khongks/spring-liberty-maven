@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<server description="new server">
+
+    <!-- Enable features -->
+    <featureManager>
+        <feature>springBoot-3.0</feature>
+        <feature>servlet-6.0</feature>
+    </featureManager>
+
+    <springBootApplication id="spring-liberty-maven" location="thin-spring-liberty-maven-1.0-SNAPSHOT.war" name="spring-liberty-maven">
+        <applicationArgument>--server.servlet.context-path=/test-maven</applicationArgument>
+        <applicationArgument>--myarg=myval</applicationArgument>
+     </springBootApplication>
+
+    <!-- To access this server from a remote client add a host attribute to the following element, e.g. host="*" -->
+    <httpEndpoint id="defaultHttpEndpoint"
+                  httpPort="9080"
+                  httpsPort="9443" />
+
+
+    <!-- Default SSL configuration enables trust for default certificates from the Java runtime --> 
+    <ssl id="defaultSSLConfig" trustDefaultCerts="true" />
+
+</server>
